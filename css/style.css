@@ -1,0 +1,290 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Nunito Sans", sans-serif;
+  background: #faf7f5;
+  padding: 0;
+  margin: 0;
+}
+
+a:focus,
+button:focus {
+  outline: 3px solid #4d6eff;
+}
+
+.btn {
+  text-decoration: none;
+  cursor: pointer;
+  background: #b5b5b5;
+  padding: 0.5em 1em;
+  border-radius: 5px;
+  color: #1f2937;
+  font-weight: bold;
+}
+
+.btn:hover {
+  background: #c9c9c9;
+}
+
+.container {
+  max-width: 1137px;
+  padding: 20px;
+  grid-gap: 10px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-auto-rows: minmax(100px, auto);
+  grid-template-areas:
+    "nicole title title"
+    "nicole devop gw"
+    "scribe work .";
+}
+
+.bento {
+  padding: 20px;
+  border-radius: 15px;
+  transition: 0.3s;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  position: relative;
+}
+
+.bento--nicole {
+  background: linear-gradient(
+      to bottom,
+      rgba(82, 82, 82, 0.5),
+      rgba(82, 82, 82, 0.5)
+    ),
+    url("../images/nicole.jpg") center/cover no-repeat;
+
+  grid-area: nicole;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.logo {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  justify-content: space-between;
+}
+
+.logo__img {
+  width: 50px;
+  object-fit: cover;
+}
+
+.logo__title {
+  font-size: 1.5rem;
+  font-weight: 900;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin: 0;
+}
+
+.logo__title span {
+  background: #4d6eff;
+  padding: 0 0.2em;
+  color: #020417;
+}
+
+.menu {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  padding: 0;
+  margin: 0 auto;
+  margin-bottom: 1em;
+}
+
+.menu li,
+.btn {
+  transition: color 250ms ease-in, background 250ms ease-in,
+    transform 250ms ease-in;
+}
+
+.menu li:hover {
+  /* Si on veut que le menu soit plus grand au survol */
+  /* transform: scale(1.1); */
+}
+
+.bento--title {
+  background: #4d6eff;
+  text-align: center;
+  border-radius: 15px;
+  transition: 0.3s;
+  color: #020417;
+  grid-area: title;
+}
+
+.bento--1 {
+  grid-area: gw;
+}
+.bento--2 {
+  grid-area: devop;
+}
+.bento--3 {
+  grid-area: scribe;
+}
+.bento--4 {
+  grid-area: work;
+}
+
+.bento--title .bento__title {
+  font-weight: 900;
+  margin-bottom: 0;
+}
+
+.bento--title .bento__title::after {
+  content: "";
+  display: block;
+  width: 5%;
+  height: 2px;
+  background: #020417;
+  margin: 0.5em auto;
+}
+
+.bento__header {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.bento__header .bento__title {
+  margin-bottom: 0;
+}
+
+.bento__metas {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  align-items: center;
+}
+
+.bento__meta--avatar {
+  width: 1.8em;
+  height: 1.8em;
+}
+
+.bento__meta--author {
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.bento__meta--date {
+  font-size: 0.8rem;
+  color: #666;
+}
+
+.bento__footer {
+  display: flex;
+  flex-direction: row-reverse;
+  margin-top: auto;
+}
+
+.bento--work {
+  border: 5px solid #ffbe00;
+}
+.bento--team {
+  border: 5px solid #00a96e;
+}
+.bento--news {
+  border: 5px solid #00b5ff;
+}
+
+.bento__tag {
+  position: absolute;
+  /* Pour venir vraiment au bord des bordures */
+  bottom: -5px;
+  left: -5px;
+  padding: 0.7em;
+  padding-left: 1em;
+  border-bottom-left-radius: 15px;
+  border-top-right-radius: 15px;
+  color: #020417;
+  text-decoration: none;
+  transition: background 0.3s;
+}
+
+.bento__tag--work {
+  background-color: #ffbe00;
+}
+
+.bento__tag--team {
+  background-color: #00a96e;
+}
+
+.bento__tag--news {
+  background-color: #00b5ff;
+}
+
+.bento__tag--work:hover {
+  background-color: #ffd700;
+}
+
+.bento__tag--team:hover {
+  background-color: #00c78e;
+}
+
+.bento__tag--news:hover {
+  background-color: #00cfff;
+}
+
+@media screen and (max-width: 1170px) and (min-width: 941px) {
+  .container {
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-areas:
+      "nicole title title"
+      "nicole gw gw"
+      "devop scribe work";
+  }
+}
+
+@media screen and (max-width: 940px) and (min-width: 559px) {
+  .bento {
+    margin: 10px 0;
+  }
+
+  .container {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-areas:
+      "nicole nicole"
+      "nicole nicole"
+      "title title"
+      "devop gw"
+      "scribe work";
+  }
+}
+
+@media screen and (max-width: 560px) {
+  .bento {
+    margin: 10px 0;
+  }
+
+  .container {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-areas:
+      "nicole"
+      "nicole"
+      "title"
+      "gw"
+      "devop"
+      "scribe"
+      "work";
+  }
+
+  .btn {
+    padding: 0.5em 1em;
+  }
+}
